@@ -1,6 +1,3 @@
-# SQLi-Tk-Lab — Local SQL Injection Learning Lab
-
-Author: Your Name (GitHub: https://github.com/sunnymishra565)
 
 # 🧠 SQLi-Tk-Lab — Local SQL Injection Learning Lab
 
