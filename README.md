@@ -91,7 +91,7 @@ Add logging and monitoring for suspicious activity.
 
 
 
-## 🖼️ Demo Images
+ 🖼️ Demo Images
 
 Vulnerable App ↓  
 ![Vulnerable Portal](vulnerable.png)
