@@ -88,7 +88,8 @@ Do not show raw SQL errors to end users.
 Add logging and monitoring for suspicious activity.
 
 Demo images
-
+![Vulnerable Portal](vulnerable.png)
+![Secure Portal](secure.png)
 
 
 
