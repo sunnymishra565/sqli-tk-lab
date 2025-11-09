@@ -23,7 +23,7 @@ This is a **local, offline learning lab** that demonstrates SQL Injection (SQLi)
 
 ---
 
-## 🧪 Quick start (no terminal complexity — local & simple)
+ 🧪 Quick start (no terminal complexity — local & simple)
 1. Clone or download the repo from GitHub and open the folder in your file manager or code editor.
 
 2. (Optional) Create a Python virtual environment:
