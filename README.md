@@ -91,10 +91,14 @@ Add logging and monitoring for suspicious activity.
 
 
 
-## Demo images
+## 🖼️ Demo Images
 
+Vulnerable App ↓  
 ![Vulnerable Portal](vulnerable.png)
+
+Secure App ↓  
 ![Secure Portal](secure.png)
+
 
 
 
