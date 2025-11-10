@@ -23,89 +23,106 @@ This is a **local, offline learning lab** that demonstrates SQL Injection (SQLi)
 
 ---
 
- 🧪 Quick start (no terminal complexity — local & simple)
-1. Clone or download the repo from GitHub and open the folder in your file manager or code editor.
+ # SQL Injection Demo — Local Lab Guide
 
-2. (Optional) Create a Python virtual environment:
+## 🔹 Step 2: Create a Python Virtual Environment
+
 ```bash
 python3 -m venv venv
 source venv/bin/activate
 pip install bcrypt
+```
 
-3. Initialize the demo database (runs locally and creates users.db):
+---
+
+## 🔹 Step 3: Initialize the Demo Database
+This command creates a local SQLite database (`users.db`):
+
+```bash
 python init_db.py
+```
 
-4. Run the vulnerable GUI app:
+---
+
+## 🔹 Step 4: Run the Vulnerable GUI App
+```bash
 python vulnerable_app_tk.py
+```
 
-5. Run the secure GUI app (to compare behavior):
+---
+
+## 🔹 Step 5: Run the Secure GUI App (for comparison)
+```bash
 python secure_app_tk.py
+```
 
-🔬 Demo / What to test (lab-only)
+---
 
-Open the GUI and try these payloads (only on your local lab):
+## 🧪 Demo (Local Testing Only)
 
-Bypass password (comment)
+### ⚠️ Test These Payloads
+> Try these **only** on your **local lab** setup.
+
+#### 🔸 Bypass Password (Comment Injection)
+```
 Username: admin' --
 Password: anything
-→ In the vulnerable app this will likely bypass the password check.
+```
+➡️ In the vulnerable app, this will likely bypass the password check.
 
-Always-true payload
+---
+
+#### 🔸 Always-True Payload
+```
 Username: ' OR '1'='1
 Password: ' OR '1'='1
-→ Makes the WHERE condition always true — demonstrates how SQLi works.
+```
+➡️ This makes the WHERE condition always true — demonstrating how SQL injection works.
 
-Watch the terminal where you launched the app — the vulnerable app prints the executed SQL:
+---
 
+### 🖥️ Observe the Query in Terminal
+When you run the app, it prints the executed SQL:
+```
 [*] Executing: SELECT * FROM users WHERE username = '...' AND password = '...'
+```
 
-This helps you see how input changes the SQL query.
+You’ll see how your input directly affects the SQL query structure.
 
-🛠 Why the vulnerable code is insecure (short)
+---
 
-The vulnerable code builds SQL by concatenating raw user input:
+## 🔍 Why the Vulnerable Code Is Insecure
 
+The vulnerable code builds SQL queries by **concatenating raw user input**:
+
+```python
 query = f"SELECT * FROM users WHERE username = '{uname}' AND password = '{pwd}'"
 cur.execute(query)
+```
 
-An attacker can inject SQL syntax into uname or pwd to change query logic (bypass auth / read or modify data).
+➡️ This allows attackers to inject SQL syntax and **manipulate the query logic** (bypass authentication, read, or modify data).
 
-Fix / secure approach
+---
 
-Use parameterized queries so user input is treated as data:
+## ✅ Secure Fix: Use Parameterized Queries
 
+```python
 query = "SELECT * FROM users WHERE username = ? AND password = ?"
 cur.execute(query, (uname, pwd))
+```
 
-Other recommendations:
+➡️ User input is now treated as **data**, not executable SQL code — preventing SQL injection.
 
-Hash passwords with bcrypt — never store plaintext passwords in production.
+---
 
-Use least-privilege DB accounts.
+## 💡 Notes & Best Practices
 
-Do not show raw SQL errors to end users.
+- **Never** build SQL queries by concatenating user input.
+- Prefer ORM libraries or parameterized queries.
+- Sanitize and validate input where possible.
+- Use least-privilege for database accounts.
+- Log queries only in safe environments (avoid logging real credentials).
 
-Add logging and monitoring for suspicious activity.
+---
 
-
-
-
-
-## 🖼️ Demo Images
-
-### Vulnerable App ↓  
-![Vulnerable Portal](./vulnerable.png)
-
-### Secure App ↓  
-![Secure Portal](./secure.png)
-
-secure.png
-
-
-
-
-
-
-
-
-
+*Made for local lab demos — do not test on systems you don't own or have permission to test.*
