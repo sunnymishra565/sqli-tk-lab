@@ -132,17 +132,15 @@ cur.execute(query, (uname, pwd))
 
 
 
-## Screenshots
-
-
 <p align="center">
-  <img src="vulnerable.png" alt="Vulnerable app" width="420"/><br/>
+  <img src="vulnerable.png" alt="Vulnerable app" width="800"/><br/>
   <em>Vulnerable app — SQLi succeeded (bypass).</em>
 </p>
 
 <p align="center">
-  <img src="secure.png" alt="Secure app" width="420"/><br/>
+  <img src="secure.png" alt="Secure app" width="800"/><br/>
   <em>Secure app — parameterized query (no SQLi).</em>
 </p>
+
 
 
