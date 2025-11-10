@@ -126,3 +126,13 @@ cur.execute(query, (uname, pwd))
 ---
 
 *Made for local lab demos — do not test on systems you don't own or have permission to test.*
+
+
+## Screenshots
+
+![Secure app screenshot](secure.png)
+*Secure app — parameterized query (no SQLi).*
+
+![Vulnerable app screenshot](vulnerable.png)
+*Vulnerable app — SQLi succeeded (bypass).*
+
